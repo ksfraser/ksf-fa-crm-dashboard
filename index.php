@@ -1,17 +1,11 @@
 <?php
-declare(strict_types=1);
 
-use Ksfraser\FrontAccounting\CRM\Dashboard\App\DashboardFrontController;
-use Ksfraser\FrontAccounting\CRM\Dashboard\App\DashboardAppShell;
+require_once __DIR__ . '/bootstrap.php';
 
 $path_to_root = '../..';
 
-if (file_exists(__DIR__ . '/bootstrap.php')) {
-    require_once __DIR__ . '/bootstrap.php';
-}
-
-$frontController = new DashboardFrontController(
-    new DashboardAppShell(),
+$frontController = new \Ksfraser\FrontAccounting\CRM\Dashboard\App\DashboardFrontController(
+    new \Ksfraser\FrontAccounting\CRM\Dashboard\App\DashboardAppShell(),
     'SA_DASHBOARD_VIEW',
     $path_to_root
 );
