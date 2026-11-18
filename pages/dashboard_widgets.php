@@ -8,7 +8,7 @@ $path_to_root = '../..';
 require_once($path_to_root . '/includes/session.inc');
 
 if (!function_exists('page_security')) {
-    define('page_security', 'SA_DASHBOARD_VIEW');
+    define('page_security', 'SA_CRM_DASHBOARD_VIEW');
 }
 
 $controller = new DashboardTabController(null, array());

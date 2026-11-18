@@ -8,10 +8,10 @@ require_once __DIR__ . '/includes/common.inc';
 require_once __DIR__ . '/includes/events.inc';
 use ksfraser\RelatedTo\DTO\RelatedRecordDto;
 define('SS_ksf_FA_CRM_Dashboard', 199 << 8);
-if (!defined('SA_DASHBOARD_VIEW')) {
-    define('SA_DASHBOARD_VIEW', SS_ksf_FA_CRM_Dashboard | 1);
-    define('SA_DASHBOARD_MANAGE', SS_ksf_FA_CRM_Dashboard | 2);
-    define('SA_DASHBOARD_ADMIN', SS_ksf_FA_CRM_Dashboard | 3);
+if (!defined('SA_CRM_DASHBOARD_VIEW')) {
+    define('SA_CRM_DASHBOARD_VIEW', SS_ksf_FA_CRM_Dashboard | 1);
+    define('SA_CRM_DASHBOARD_MANAGE', SS_ksf_FA_CRM_Dashboard | 2);
+    define('SA_CRM_DASHBOARD_ADMIN', SS_ksf_FA_CRM_Dashboard | 3);
 }
 class hooks_ksf_FA_CRM_Dashboard extends hooks {
     const RESPONDERS = array('RELATED_TO_FIELDS', 'DASHBOARD_RESOLVE', 'DASHBOARD_FIELDS', 'DASHBOARD_LIST');
@@ -21,9 +21,9 @@ class hooks_ksf_FA_CRM_Dashboard extends hooks {
     function install_options($app) { }
     function install_access() {
         $security_sections[SS_ksf_FA_CRM_Dashboard] = _("Dashboards");
-        $security_areas['SA_DASHBOARD_VIEW'] = array(SA_DASHBOARD_VIEW, _("View dashboards"));
-        $security_areas['SA_DASHBOARD_MANAGE'] = array(SA_DASHBOARD_MANAGE, _("Manage dashboards"));
-        $security_areas['SA_DASHBOARD_ADMIN'] = array(SA_DASHBOARD_ADMIN, _("Administer dashboards"));
+        $security_areas['SA_CRM_DASHBOARD_VIEW'] = array(SA_CRM_DASHBOARD_VIEW, _("View dashboards"));
+        $security_areas['SA_CRM_DASHBOARD_MANAGE'] = array(SA_CRM_DASHBOARD_MANAGE, _("Manage dashboards"));
+        $security_areas['SA_CRM_DASHBOARD_ADMIN'] = array(SA_CRM_DASHBOARD_ADMIN, _("Administer dashboards"));
         return array($security_areas, $security_sections);
     }
     function activate_extension($company, $check_only = true) {
@@ -40,9 +40,9 @@ class hooks_ksf_FA_CRM_Dashboard extends hooks {
     public function getModuleConstants(&$data, $opts = null) {
         $data['constants'] = array(
             'SS_ksf_FA_CRM_Dashboard' => SS_ksf_FA_CRM_Dashboard,
-            'SA_DASHBOARD_VIEW' => SA_DASHBOARD_VIEW,
-            'SA_DASHBOARD_MANAGE' => SA_DASHBOARD_MANAGE,
-            'SA_DASHBOARD_ADMIN' => SA_DASHBOARD_ADMIN,
+            'SA_CRM_DASHBOARD_VIEW' => SA_CRM_DASHBOARD_VIEW,
+            'SA_CRM_DASHBOARD_MANAGE' => SA_CRM_DASHBOARD_MANAGE,
+            'SA_CRM_DASHBOARD_ADMIN' => SA_CRM_DASHBOARD_ADMIN,
         );
         return true;
     }
